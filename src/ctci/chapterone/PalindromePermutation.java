@@ -10,11 +10,8 @@ public class PalindromePermutation {
     Output: True (permutations: " taco cat" . " atco cta" . etc.)*/
 
     public static void main(String[] args) {
-        // write your code here
         String input = "Tact Coa";
-//        String input2 = "Cowabung rt";
         System.out.println(isPalindromePermutation(input));
-//        System.out.println( isPalindromePermutation(input2));
     }
 
     private static boolean isPalindromePermutation(String input) {
