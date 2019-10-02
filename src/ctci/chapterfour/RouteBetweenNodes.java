@@ -29,6 +29,7 @@ public class RouteBetweenNodes {
 
     public static void main(String[] args) {
         Graph graph = new Graph(true);
+        
 
         GraphNode n1 = new GraphNode(1);
         GraphNode n2 = new GraphNode(2);
