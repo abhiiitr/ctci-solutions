@@ -32,6 +32,10 @@ public class WordBreak {
 
     public static void main(String[] args) {
         WordBreak obj = new WordBreak();
+        Set<Integer> set = new HashSet<>();
+        final Iterator<Integer> iterator = set.iterator();
+        iterator.remove();
+
         String arr[] = new String[]{"leet", "code"};
         System.out.println(obj.wordBreak("leetcode", Arrays.asList("leet", "code")));
     }
