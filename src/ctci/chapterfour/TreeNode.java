@@ -1,20 +1,20 @@
 package ctci.chapterfour;
 
 public class TreeNode {
-    int data;
+    int val;
     TreeNode left;
     TreeNode right;
 
     TreeNode(int x) {
-        data = x;
+        val = x;
     }
 
-    static void printTree(TreeNode node){
+    static void printTree(TreeNode node) {
 
-        if(node !=null){
+        if (node != null) {
             // Inorder traversal
             printTree(node.left);
-            System.out.print(node.data + " , ");
+            System.out.print(node.val + " , ");
             printTree(node.right);
         }
     }
