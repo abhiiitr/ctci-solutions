@@ -3,39 +3,38 @@ package ctci.leetcode;
 import java.util.*;
 
 public class WordBreak {
-    public boolean wordBreak(String s, List<String> wordDict) {
-        if (s == null || s.length() == 0 || wordDict == null || wordDict.size() == 0)
+    Boolean[] visited;
+    public boolean wordBreak(String s, List<String> dict){
+
+        if( s== null || s.length() == 0 || dict == null || dict.size() == 0)
             return false;
-        char str[] = s.toCharArray();
-        Set<String> wordSet = new HashSet(wordDict);
-        //System.out.println(wordSet);
-        return wordBreak(s, 0, s.length() - 1, wordSet);
+        Set<String> set = new HashSet<>(dict);
+        visited = new Boolean[s.length()];
+
+        return wordBreak(s, set, 0);
     }
 
-    public boolean wordBreak(String s, int start, int end, Set<String> wordSet) {
-        if (start == end + 1)
+    public boolean wordBreak(String s, Set<String> dict, int start){
+        if( start == s.length()){
             return true;
-        System.out.println(s.substring(start, end + 1));
-        System.out.println(start);
-        for (int i = 0; start + i <= end; i++) {
-
-            String temp = s.substring(start, start + i + 1);
-            if (wordSet.contains(temp) && wordBreak(s, start + i + 1, end, wordSet)) {
+        }
+        if(visited[start] != null)
+            return visited[start];
+        for(int i = start; i < s.length(); i++){
+            String subStr = s.substring(start, i+1);
+            if(dict.contains(subStr) && wordBreak(s, dict, i+1)){
+                visited[i] = true;
                 return true;
             }
         }
-
+        visited[start] = false;
         return false;
+
     }
 
     public static void main(String[] args) {
         WordBreak obj = new WordBreak();
         Set<Integer> set = new HashSet<>();
-        Integer a1 = new Integer(1);
-        Integer a2 = new Integer(2);
-
-        System.out.println(a1.compareTo(a2));
-        String arr[] = new String[]{"leet", "code"};
         System.out.println(obj.wordBreak("leetcode", Arrays.asList("leet", "code")));
     }
 
